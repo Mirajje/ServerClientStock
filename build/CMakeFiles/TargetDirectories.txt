@@ -1,0 +1,4 @@
+/home/mirajje/code/stock/build/CMakeFiles/server.dir
+/home/mirajje/code/stock/build/CMakeFiles/client.dir
+/home/mirajje/code/stock/build/CMakeFiles/edit_cache.dir
+/home/mirajje/code/stock/build/CMakeFiles/rebuild_cache.dir

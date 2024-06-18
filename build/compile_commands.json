@@ -1,0 +1,50 @@
+[
+{
+  "directory": "/home/mirajje/code/stock/build",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK -g -std=gnu++17 -o CMakeFiles/server.dir/server-main.cpp.o -c /home/mirajje/code/stock/server-main.cpp",
+  "file": "/home/mirajje/code/stock/server-main.cpp",
+  "output": "CMakeFiles/server.dir/server-main.cpp.o"
+},
+{
+  "directory": "/home/mirajje/code/stock/build",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK -g -std=gnu++17 -o CMakeFiles/server.dir/server.cpp.o -c /home/mirajje/code/stock/server.cpp",
+  "file": "/home/mirajje/code/stock/server.cpp",
+  "output": "CMakeFiles/server.dir/server.cpp.o"
+},
+{
+  "directory": "/home/mirajje/code/stock/build",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK -g -std=gnu++17 -o CMakeFiles/server.dir/common.cpp.o -c /home/mirajje/code/stock/common.cpp",
+  "file": "/home/mirajje/code/stock/common.cpp",
+  "output": "CMakeFiles/server.dir/common.cpp.o"
+},
+{
+  "directory": "/home/mirajje/code/stock/build",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK -g -std=gnu++17 -o CMakeFiles/server.dir/utils.cpp.o -c /home/mirajje/code/stock/utils.cpp",
+  "file": "/home/mirajje/code/stock/utils.cpp",
+  "output": "CMakeFiles/server.dir/utils.cpp.o"
+},
+{
+  "directory": "/home/mirajje/code/stock/build",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK -g -std=gnu++17 -o CMakeFiles/client.dir/client-main.cpp.o -c /home/mirajje/code/stock/client-main.cpp",
+  "file": "/home/mirajje/code/stock/client-main.cpp",
+  "output": "CMakeFiles/client.dir/client-main.cpp.o"
+},
+{
+  "directory": "/home/mirajje/code/stock/build",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK -g -std=gnu++17 -o CMakeFiles/client.dir/client.cpp.o -c /home/mirajje/code/stock/client.cpp",
+  "file": "/home/mirajje/code/stock/client.cpp",
+  "output": "CMakeFiles/client.dir/client.cpp.o"
+},
+{
+  "directory": "/home/mirajje/code/stock/build",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK -g -std=gnu++17 -o CMakeFiles/client.dir/common.cpp.o -c /home/mirajje/code/stock/common.cpp",
+  "file": "/home/mirajje/code/stock/common.cpp",
+  "output": "CMakeFiles/client.dir/common.cpp.o"
+},
+{
+  "directory": "/home/mirajje/code/stock/build",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK -g -std=gnu++17 -o CMakeFiles/client.dir/utils.cpp.o -c /home/mirajje/code/stock/utils.cpp",
+  "file": "/home/mirajje/code/stock/utils.cpp",
+  "output": "CMakeFiles/client.dir/utils.cpp.o"
+}
+]
