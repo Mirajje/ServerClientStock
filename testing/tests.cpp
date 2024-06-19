@@ -1,5 +1,5 @@
-#include "server.hpp"
-#include "client.hpp"
+#include "../src/server.hpp"
+#include "../src/client.hpp"
 
 #include <gtest/gtest.h>
 #include <boost/thread.hpp>

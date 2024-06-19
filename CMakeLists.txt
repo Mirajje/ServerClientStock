@@ -7,10 +7,10 @@ INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIR})
 
 SET(CMAKE_CXX_STANDARD 17)
 
-ADD_EXECUTABLE(server server-main.cpp server.cpp common.cpp utils.cpp)
+ADD_EXECUTABLE(server src/server-main.cpp src/server.cpp src/common.cpp src/utils.cpp)
 TARGET_LINK_LIBRARIES(server PRIVATE Threads::Threads ${Boost_LIBRARIES})
 
-ADD_EXECUTABLE(client client-main.cpp client.cpp common.cpp utils.cpp)
+ADD_EXECUTABLE(client src/client-main.cpp src/client.cpp src/common.cpp src/utils.cpp)
 TARGET_LINK_LIBRARIES(client PRIVATE Threads::Threads ${Boost_LIBRARIES})
 
 include(FetchContent)
@@ -24,7 +24,7 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-ADD_EXECUTABLE(tests test.cpp client.cpp server.cpp common.cpp utils.cpp)
+ADD_EXECUTABLE(tests testing/tests.cpp src/client.cpp src/server.cpp src/common.cpp src/utils.cpp)
 TARGET_LINK_LIBRARIES(tests PRIVATE Threads::Threads GTest::gtest_main ${Boost_LIBRARIES})
 
 include(GoogleTest)
