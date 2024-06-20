@@ -81,8 +81,7 @@ int main() {
                 }
             }
         }
-    }
-    catch (std::exception& e) {
+    } catch (const std::exception& e) {
         std::cout << "Exception: " << e.what() << "\n";
     }
 }

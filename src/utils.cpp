@@ -1,6 +1,8 @@
 #include "utils.hpp"
 
 #include <sstream>
+#include <iostream>
+#include <limits>
 
 size_t StrToUint(const std::string& str) {
     std::stringstream ss(str);
