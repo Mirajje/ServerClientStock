@@ -2,9 +2,10 @@
 
 #include "common.hpp"
 
-#include <queue>
 #include <boost/bind/bind.hpp>
 #include <boost/asio.hpp>
+
+#include <queue>
 
 class Session;
 

@@ -1,7 +1,6 @@
 #include "common.hpp"
 
 #include <unordered_map>
-#include <stdexcept>
 
 std::string ErrorCodeToMessage(ErrorCode code) {
     static std::unordered_map<ErrorCode, std::string> map = {

@@ -1,6 +1,8 @@
 #include "client.hpp"
 #include "utils.hpp"
 
+#include <iostream>
+
 int main() {
     try {
         Client client;

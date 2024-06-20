@@ -1,8 +1,6 @@
 #include "client.hpp"
 #include "utils.hpp"
 
-#include <memory>
-
 namespace {
 
 std::string ReadMessage(boost::asio::ip::tcp::socket& socket) {
