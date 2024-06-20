@@ -169,7 +169,7 @@ Balance& Server::GetBalance(size_t id) {
 }
 
 void Server::HandleQuery(size_t id, size_t amount, size_t price, bool is_buying) {
-    static std::atomic<size_t> query_priority{};
+    static size_t query_priority{};
 
     auto& balance = GetBalance(id);
 
