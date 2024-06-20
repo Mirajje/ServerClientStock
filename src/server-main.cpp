@@ -12,6 +12,4 @@ int main() {
     } catch (const std::exception& exc) {
         std::cout << "Exception: " << exc.what() << "\n";
     }
-
-    return 0;
 }

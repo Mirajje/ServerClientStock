@@ -59,36 +59,53 @@ void Session::HandleRead(const boost::system::error_code& error,
         data_[bytes_transferred] = '\0';
 
         auto json = nlohmann::json::parse(data_);
-        auto reqType = StrToRequestType(json["ReqType"]);
+        auto reqType = std::stoi(static_cast<std::string>(json["ReqType"]));
 
         nlohmann::json reply;
         switch (reqType) {
             case RequestType::Register: {
-                reply["Id"] = std::to_string(server_.balances_.size());
+                std::string login = json["Login"];
+                if (server_.credentials_.count(login)) {
+                    reply["ErrorCode"] = std::to_string(ErrorCode::RegistrationLoginAlreadyInUse);
+                    break;
+                }
+
+                size_t id = server_.balances_.size();
                 server_.balances_.emplace_back();
+
+                std::string password = json["Password"];
+                server_.credentials_[login] = {password, id};
+                reply["Id"] = std::to_string(id);
+                break;
+            }
+            case RequestType::Login: {
+                std::string login = json["Login"];
+                if (!server_.credentials_.count(login)) {
+                    reply["ErrorCode"] = std::to_string(ErrorCode::LoginInvalidLogin);
+                    break;
+                }
+
+                std::string password = json["Password"];
+                if (server_.credentials_[login].first != password) {
+                    reply["ErrorCode"] = std::to_string(ErrorCode::LoginInvalidPassword);
+                    break;
+                }
+
+                reply["Id"] = std::to_string(server_.credentials_[login].second);
                 break;
             }
             case RequestType::AddQuery: {
                 size_t id = StrToUint(json["Id"]);
-
-                if (id >= server_.balances_.size()) {
-                    throw std::runtime_error("Invalid client id: " + std::to_string(id));
-                }
-
                 size_t amount = StrToUint(json["Amount"]);
                 size_t price = StrToUint(json["Price"]);
                 bool is_buying;
                 std::istringstream(static_cast<std::string>(json["IsBuying"])) >> is_buying;
+
                 server_.HandleQuery(id, amount, price, is_buying);
                 break;
             }
             case RequestType::GetBalance: {
                 size_t id = StrToUint(json["Id"]);
-
-                if (id >= server_.balances_.size()) {
-                    throw std::runtime_error("Invalid client id: " + std::to_string(id));
-                }
-
                 auto& balance = server_.GetBalance(id);
                 reply["Rub"] = std::to_string(balance.rub_);
                 reply["USD"] = std::to_string(balance.usd_);
@@ -122,7 +139,7 @@ void Session::HandleWrite(const boost::system::error_code& error) {
 
 Server::Server(boost::asio::io_service& io_service)
         : io_service_(io_service), acceptor_(io_service, boost::asio::ip::tcp::endpoint(boost::asio::ip::tcp::v4(), port)) {
-    std::cout << "Server started! Listen " << port << " port" << std::endl;
+    std::cout << "Server started! Listening to " << port << " port" << std::endl;
 
     Session* new_session = new Session(io_service_, *this);
     acceptor_.async_accept(new_session->GetSocket(),

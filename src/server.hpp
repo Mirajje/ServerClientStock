@@ -21,6 +21,9 @@ private:
     // id - Balance
     std::vector<Balance> balances_;
 
+    // login - {password, id}
+    std::unordered_map<std::string, std::pair<std::string, size_t>> credentials_; 
+
     struct CompareQueriesLess {
         bool operator()(const Query& a, const Query& b) {
             return a.price_ < b.price_ || (a.price_ == b.price_ && a.time_of_creation_ < b.time_of_creation_);

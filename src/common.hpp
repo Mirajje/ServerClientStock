@@ -16,8 +16,15 @@ struct Query {
 enum RequestType {
     AddQuery,
     GetBalance,
-    Register
+    Register,
+    Login
 };
 
-RequestType StrToRequestType(const std::string& str);
-std::string RequestTypeToStr(RequestType type);
+enum ErrorCode {
+    NoErrors,
+    RegistrationLoginAlreadyInUse,
+    LoginInvalidLogin,
+    LoginInvalidPassword
+};
+
+std::string ErrorCodeToMessage(ErrorCode code);
